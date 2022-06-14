@@ -11,7 +11,9 @@ const userRoute = require('./src/routes/user');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:false }))
 
-mongoose.connect(process.env.DATABASE_URL).then(()=>console.log("Banco Conectado.")).catch(err=>console.log("Error", err));
+mongoose.connect(process.env.DATABASE_URL).then(
+()=>console.log("Banco Conectado."))
+.catch(err=>console.log("Error", err), {useMongoClient: true});
 mongoose.Promise = global.Promise;
 
 
@@ -26,4 +28,6 @@ app.listen(3001, () => {
     console.log("Server is running at 3001");
 
 })
+
+module.exports = mongoose;
 
