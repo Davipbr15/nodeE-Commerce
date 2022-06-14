@@ -7,19 +7,8 @@ const authConfig = require("../config/auth.json");
 
 const router = express.Router();
 
-router.post('/autheticate', async(req,res)=>{
-    const{name,email,password} = req.body;
-    if(verifyEmail) return res.status(400).send("Usuário Já Cadastrado");
-
-    const token = jwt.sign({ id: User.id }, authConfig.secret,{
-        expiresIn: 86400,
-    } );
-
-    return res.send({user, token});
-
-})
-
 exports.create = async(req,res)=>{
+    
     const{name,email,password} = req.body;
 
     const newPassword = hashPassword(password);
