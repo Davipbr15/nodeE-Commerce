@@ -2,10 +2,17 @@ const express = require("express");
 const app = express();
 
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
 
 //middleWare
 
 app.use(bodyParser.json());
+
+mongoose.connect(process.env.DATABASE_URL).then(()=>console.log("Banco Conectado.")).catch(err=>console.log("Error", err));
+
+
 
 
 app.get("/", (req,res)=>{
