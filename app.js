@@ -5,14 +5,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const userRoute = require('./routes/user');
+const userRoute = require('./src/routes/user');
 
 
 //middleWare
-
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}))
 
 mongoose.connect(process.env.DATABASE_URL).then(()=>console.log("Banco Conectado.")).catch(err=>console.log("Error", err));
+mongoose.Promise = global.Promise;
 
 
 app.get("/", (req,res)=>{
