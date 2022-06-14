@@ -7,7 +7,6 @@ require('dotenv').config();
 
 const userRoute = require('./src/routes/user');
 
-
 //middleWare
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:false }))
