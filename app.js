@@ -17,6 +17,18 @@ mongoose.connect(process.env.DATABASE_URL).then(
 mongoose.Promise = global.Promise;
 
 
+
+const name = "55";
+const email = "55@gmail";
+const password = "55";
+var user = {
+    "name": name,
+    "email": email,
+    "password": password
+}
+
+
+
 app.get("/", (req,res)=>{
     res.send("Sample Page <br>Go to /products");
 })
