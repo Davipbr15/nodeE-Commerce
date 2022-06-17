@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:false }))
 
 mongoose.connect(process.env.DATABASE_URL).then(
-()=>console.log("Banco Conectado."))
+()=>console.log("Banco Conectado"))
 .catch(err=>console.log("Error", err), {useMongoClient: true});
 mongoose.Promise = global.Promise;
 
